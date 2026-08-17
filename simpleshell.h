@@ -15,5 +15,6 @@ extern char **environ;
 /* ==== PROTOTYPES utilisés ==== */
 int handle_builtin(char **argv);
 int execute(char **argv);
+void print_environ(char **env);
 
 #endif /* SIMPLE_SHELL_H */
