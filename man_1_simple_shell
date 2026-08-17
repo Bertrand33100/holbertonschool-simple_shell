@@ -1,0 +1,176 @@
+.TH SIMPLE_SHELL 1 "August 2026" "Holberton School" "User Commands"
+
+.SH NAME
+simple_shell - simple Unix command interpreter
+
+.SH SYNOPSIS
+.B ./hsh
+
+.SH DESCRIPTION
+.B simple_shell
+is a basic Unix command interpreter developed as part of the Holberton School curriculum.
+
+The shell reads commands from the standard input, processes them, and executes the requested programs.
+
+In interactive mode, the shell displays a prompt and waits for the user to enter a command.
+
+.SH PROMPT
+The shell displays the following prompt in interactive mode:
+
+.nf
+$
+.fi
+
+After a command has been executed, the shell displays the prompt again.
+
+.SH COMMAND EXECUTION
+The shell performs the following operations:
+
+.IP 1.
+Display the prompt.
+
+.IP 2.
+Read a line from the standard input using
+.BR getline (3).
+
+.IP 3.
+Tokenize the command line into arguments.
+
+.IP 4.
+Check whether the command is a built-in.
+
+.IP 5.
+Search for the executable using the
+.B PATH
+environment variable when necessary.
+
+.IP 6.
+Create a child process using
+.BR fork (2).
+
+.IP 7.
+Execute the program in the child process using
+.BR execve (2).
+
+.IP 8.
+Wait for the child process to finish.
+
+.IP 9.
+Display the prompt again.
+
+.SH BUILT-IN COMMANDS
+
+.TP
+.B exit
+Terminates the shell.
+
+.TP
+.B env
+Prints the current environment variables.
+
+.SH PATH
+The shell uses the
+.B PATH
+environment variable to search for executable programs.
+
+For example:
+
+.nf
+$ ls
+.fi
+
+The shell searches the directories contained in
+.B PATH
+to find the
+.B ls
+executable.
+
+.SH EOF
+EOF means End Of File.
+
+In interactive mode, pressing
+.B Ctrl-D
+sends an EOF condition to the shell.
+
+When EOF is received, the shell terminates.
+
+.SH NON-INTERACTIVE MODE
+The shell can read commands from standard input without displaying the interactive prompt.
+
+Example:
+
+.nf
+echo "ls" | ./hsh
+.fi
+
+.SH ERRORS
+When a command cannot be found, the shell displays an error message.
+
+The shell should continue running after an invalid command when operating in interactive mode.
+
+.SH FILES
+
+.TP
+.B simpleshell.c
+Contains the main loop of the shell.
+
+.TP
+.B getline.c
+Reads commands from standard input.
+
+.TP
+.B token.c
+Tokenizes the command line into arguments.
+
+.TP
+.B builtin.c
+Handles built-in commands.
+
+.TP
+.B environment.c
+Handles environment-related operations.
+
+.TP
+.B simpleshell.h
+Contains function prototypes and required declarations.
+
+.SH COMPILATION
+Compile the shell with:
+
+.nf
+gcc -Wall -Wextra -Werror -pedantic *.c -o hsh
+.fi
+
+.SH EXAMPLES
+Start the shell:
+
+.nf
+$ ./hsh
+.fi
+
+Execute commands:
+
+.nf
+$ ls
+$ pwd
+$ env
+.fi
+
+Exit the shell:
+
+.nf
+$ exit
+.fi
+
+.SH AUTHORS
+Eva Galiano
+.br
+Bertrand Oeung
+
+.SH SEE ALSO
+.BR sh (1),
+.BR bash (1),
+.BR fork (2),
+.BR execve (2),
+.BR wait (2),
+.BR getline (3)
