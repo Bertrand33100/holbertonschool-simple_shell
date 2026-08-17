@@ -17,7 +17,7 @@ int handle_builtin(char **argv)
     /* builtin: env */
     if (strcmp(argv[0], "env") == 0)
     {
-        print_environment(environ);
+        print_environ(environ);
         return (1);
     }
 
