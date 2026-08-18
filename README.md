@@ -27,7 +27,8 @@ Our goal was to understand how a shell works internally: reading user input, par
 
 The following flowchart represents the main execution process of our Simple Shell:
 
-![Simple Shell Flowchart](flowchart.png)
+<img width="3028" height="3920" alt="Flowchart" src="https://github.com/user-attachments/assets/b9c27652-3640-4542-804a-f706a42fcc04" />
+
 
 The flowchart shows the different stages of the shell:
 
