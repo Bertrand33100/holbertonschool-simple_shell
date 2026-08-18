@@ -1,10 +1,11 @@
 #include "simpleshell.h"
 
 /**
- * execute - fork + execve pour exécuter une commande
- * @argv: tableau d'arguments
- *
- * Return: 0 si succès, 1 si erreur
+ * execute - fork + execve to execute a command
+ * @argv: array of arguments
+ * @path: full path already resolved
+ * @program: first argument of the shell
+ * Return: 0 on success, 1 on error
  */
 int execute(char *path, char **argv, char *program)
 {

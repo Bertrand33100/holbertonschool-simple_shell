@@ -1,18 +1,16 @@
 #include "simpleshell.h"
 
 /**
- * handle_builtin - Vérifie et exécute un builtin
- * @argv: tableau d'arguments
- *
- * Return: 1 si un builtin a été exécuté, 0 sinon
+ * handle_builtin - Check and execute a builtin command
+ * @argv: array of arguments
+ * @line: raw line read by getline
+ * Return: 1 if a builtin was executed, 0 otherwise
  */
 int handle_builtin(char **argv, char *line)
-
 {
     /* builtin: exit */
     if (strcmp(argv[0], "exit") == 0)
     {
-        
         free_array(argv);
         free(line);
         exit(0);
