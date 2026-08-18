@@ -13,7 +13,10 @@
 extern char **environ;
 
 /* ==== PROTOTYPES used ==== */
+
 /*simpleshell.c*/
+char *read_line(void);
+int handle_line(char *line, char *prog_name, int line_count);
 
 /* token.c */
 char **strtow(char *str);
