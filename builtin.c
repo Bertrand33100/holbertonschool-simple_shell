@@ -8,20 +8,20 @@
  */
 int handle_builtin(char **argv, char *line, int last_status)
 {
-    /* builtin: exit */
-    if (strcmp(argv[0], "exit") == 0)
-    {
-        free_array(argv);
-        free(line);
-        exit(last_status);
-    }
+	/* builtin: exit */
+	if (strcmp(argv[0], "exit") == 0)
+	{
+		free_array(argv);
+		free(line);
+		exit(last_status);
+	}
 
-    /* builtin: env */
-    if (strcmp(argv[0], "env") == 0)
-    {
-        print_environ();
-        return (1);
-    }
+	/* builtin: env */
+	if (strcmp(argv[0], "env") == 0)
+	{
+		print_environ();
+		return (1);
+	}
 
-    return (0);
+	return (0);
 }

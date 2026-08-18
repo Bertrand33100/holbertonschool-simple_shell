@@ -5,10 +5,10 @@
  */
 void print_environ(void)
 {
-    int i;
+	int i;
 
-    for (i = 0; environ[i] != NULL; i++)
-        printf("%s\n", environ[i]);
+	for (i = 0; environ[i] != NULL; i++)
+		printf("%s\n", environ[i]);
 }
 
 /**
@@ -18,16 +18,16 @@ void print_environ(void)
  */
 char *_getenv(const char *name)
 {
-    int i;
-    size_t len;
+	int i;
+	size_t len;
 
-    len = strlen(name);
-    for (i = 0; environ[i] != NULL; i++)
-    {
-        if (strncmp(environ[i], name, len) == 0 && environ[i][len] == '=')
-            return (environ[i] + len + 1);
-    }
-    return (NULL);
+	len = strlen(name);
+	for (i = 0; environ[i] != NULL; i++)
+	{
+		if (strncmp(environ[i], name, len) == 0 && environ[i][len] == '=')
+			return (environ[i] + len + 1);
+	}
+	return (NULL);
 }
 
 /**
@@ -38,15 +38,15 @@ char *_getenv(const char *name)
  */
 static char *build_path(char *dir, char *cmd)
 {
-    char *full;
-    size_t len;
+	char *full;
+	size_t len;
 
-    len = strlen(dir) + strlen(cmd) + 2;
-    full = malloc(len);
-    if (full == NULL)
-        return (NULL);
-    sprintf(full, "%s/%s", dir, cmd);
-    return (full);
+	len = strlen(dir) + strlen(cmd) + 2;
+	full = malloc(len);
+	if (full == NULL)
+		return (NULL);
+	sprintf(full, "%s/%s", dir, cmd);
+	return (full);
 }
 
 /**
@@ -56,39 +56,39 @@ static char *build_path(char *dir, char *cmd)
  */
 char *find_path(char *cmd)
 {
-    char *path_value, *path_copy, *dir, *full;
+	char *path_value, *path_copy, *dir, *full;
 
-    if (strchr(cmd, '/') != NULL)
-    {
-        if (access(cmd, X_OK) != 0)
-            return (NULL);
-        full = malloc(strlen(cmd) + 1);
-        if (full != NULL)
-            strcpy(full, cmd);
-        return (full);
-    }
-    
-    path_value = _getenv("PATH");
-    if (path_value == NULL)
-        return (NULL);
+	if (strchr(cmd, '/') != NULL)
+	{
+		if (access(cmd, X_OK) != 0)
+			return (NULL);
+		full = malloc(strlen(cmd) + 1);
+		if (full != NULL)
+			strcpy(full, cmd);
+		return (full);
+	}
+	
+	path_value = _getenv("PATH");
+	if (path_value == NULL)
+		return (NULL);
 
-    path_copy = malloc(strlen(path_value) + 1);
-    if (path_copy == NULL)
-        return (NULL);
-    strcpy(path_copy, path_value);
+	path_copy = malloc(strlen(path_value) + 1);
+	if (path_copy == NULL)
+		return (NULL);
+	strcpy(path_copy, path_value);
 
-    dir = strtok(path_copy, ":");
-    while (dir != NULL)
-    {
-        full = build_path(dir, cmd);
-        if (full != NULL && access(full, X_OK) == 0)
-        {
-            free(path_copy);
-            return (full);
-        }
-        free(full);
-        dir = strtok(NULL, ":");
-    }
-    free(path_copy);
-    return (NULL);
+	dir = strtok(path_copy, ":");
+	while (dir != NULL)
+	{
+		full = build_path(dir, cmd);
+		if (full != NULL && access(full, X_OK) == 0)
+		{
+			free(path_copy);
+			return (full);
+		}
+		free(full);
+		dir = strtok(NULL, ":");
+	}
+	free(path_copy);
+	return (NULL);
 }
