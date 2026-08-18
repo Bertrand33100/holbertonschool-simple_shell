@@ -30,7 +30,9 @@ int execute(char *path, char **argv, char *program)
     else
     {
         wait(&status);
+        if (WIFEXITED(status))
+            return (weitstatus(status));
     }
 
-    return (0);
+    return (1);
 }
