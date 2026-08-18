@@ -21,12 +21,12 @@ int handle_line(char *line, char *prog_name, int line_count);
 char **strtow(char *str);
 void free_array(char **array);
 /* Builtin.c */
-int handle_builtin(char **argv);
+int handle_builtin(char **argv, char *line);
 /* environment.c */
 void print_environ(void);
 char *_getenv(const char *name);
 char *find_path(char *cmd);
 /* execute.c */
-int execute(char **argv);
+int execute(char *path, char **argv, char *program);
 
 #endif /* SIMPLE_SHELL_H */
