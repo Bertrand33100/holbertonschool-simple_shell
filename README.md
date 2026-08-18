@@ -91,8 +91,6 @@ Compilation uses:
 
 ## Authors
 
-### Bertrand Oeung
-
-GitHub: Bertrand33100
-
 ### Eva Galiano
+
+### Bertrand Oeung
