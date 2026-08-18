@@ -13,7 +13,7 @@ int handle_builtin(char **argv, char *line, int last_status)
     {
         free_array(argv);
         free(line);
-        exit(0);
+        exit(last_status);
     }
 
     /* builtin: env */
