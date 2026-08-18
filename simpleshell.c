@@ -24,6 +24,7 @@ char *read_line(void)
  * @line: line read from stdin
  * @program: argv[0] of the shell for error messages
  * @line_count: current line number for error messages
+ * @last_status: get the last status generated at exit
  * Return: 0 if success or 127 if the command is not found
  */
 int handle_line(char *line, char *program, int line_count, int last_status)
