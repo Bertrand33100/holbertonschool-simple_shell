@@ -71,6 +71,5 @@ builtin.c        # Built-in commands such as exit and env
 execute.c        # Process creation and command execution
 environment.c    # Environment management and printing
 token.c          # Tokenizing commands
-getline.c        # Reading user input
 simpleshell.c    # Main shell loop
 simpleshell.h    # Header file and function prototypes
