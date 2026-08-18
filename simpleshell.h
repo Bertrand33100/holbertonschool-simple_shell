@@ -13,8 +13,18 @@
 extern char **environ;
 
 /* ==== PROTOTYPES utilisés ==== */
+/*simpleshell.c*/
+
+/* token.c */
+char **strtow(char *str);
+void free_array(char **array);
+/* Builtin.c */
 int handle_builtin(char **argv);
+/* environment.c */
+void print_environ(void);
+char *_getenv(const char *name);
+char *find_path(char *cmd);
+/* execute.c */
 int execute(char **argv);
-void print_environ(char **env);
 
 #endif /* SIMPLE_SHELL_H */
