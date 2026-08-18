@@ -17,7 +17,6 @@ extern char **environ;
 /*simpleshell.c*/
 char *read_line(void);
 int handle_line(char *line, char *prog_name, int line_count);
-
 /* token.c */
 char **strtow(char *str);
 void free_array(char **array);
