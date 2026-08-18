@@ -11,7 +11,7 @@ char **strtow(char *str)
 	char *token, **array, *copy;
 	const char *separators = " \t\n";
 
-	copy = malloc(strlen(str) +1);
+	copy = malloc(strlen(str) + 1);
 	if (copy == NULL)
 		return (NULL);
 	strcpy(copy, str);
@@ -24,16 +24,16 @@ char **strtow(char *str)
 	array = malloc(sizeof(char *) * (i + 1));
 	if (array == NULL)
 		return (NULL);
-	
+
 	token = strtok(str, separators);
 	for (j = 0; token != NULL; j++)
 	{
-		array[j] = malloc(strlen(token) +1);
+		array[j] = malloc(strlen(token) + 1);
 		if (array[j] == NULL)
 		{
 			while (j > 0)
-				free (array[--j]);
-			free (array);
+				free(array[--j]);
+			free(array);
 			return (NULL);
 		}
 		strcpy(array[j], token);

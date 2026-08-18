@@ -2,12 +2,12 @@
 #define SIMPLE_SHELL_H
 
 /* ==== INCLUDES required for builtin.c + execute.c ==== */
-#include <stdio.h>       /* printf, perror */
-#include <stdlib.h>      /* exit */
-#include <unistd.h>      /* fork, execve */
-#include <string.h>      /* strcmp */
-#include <sys/types.h>   /* pid_t */
-#include <sys/wait.h>    /* wait */
+#include <stdio.h>		/* printf, perror */
+#include <stdlib.h>		/* exit */
+#include <unistd.h>		/* fork, execve */
+#include <string.h>		/* strcmp */
+#include <sys/types.h>	/* pid_t */
+#include <sys/wait.h>	/* wait */
 
 /* Access to the global environment variable */
 extern char **environ;

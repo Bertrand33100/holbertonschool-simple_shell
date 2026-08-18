@@ -67,7 +67,7 @@ char *find_path(char *cmd)
 			strcpy(full, cmd);
 		return (full);
 	}
-	
+
 	path_value = _getenv("PATH");
 	if (path_value == NULL)
 		return (NULL);
