@@ -1,7 +1,7 @@
 #ifndef SIMPLE_SHELL_H
 #define SIMPLE_SHELL_H
 
-/* ==== INCLUDES nécessaires pour builtin.c + execute.c ==== */
+/* ==== INCLUDES required for builtin.c + execute.c ==== */
 #include <stdio.h>       /* printf, perror */
 #include <stdlib.h>      /* exit */
 #include <unistd.h>      /* fork, execve */
@@ -9,10 +9,10 @@
 #include <sys/types.h>   /* pid_t */
 #include <sys/wait.h>    /* wait */
 
-/* Accès à la variable globale environ */
+/* Access to the global environment variable */
 extern char **environ;
 
-/* ==== PROTOTYPES utilisés ==== */
+/* ==== PROTOTYPES used ==== */
 /*simpleshell.c*/
 
 /* token.c */
