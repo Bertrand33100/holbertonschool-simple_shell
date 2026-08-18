@@ -5,7 +5,7 @@
  * @str: string to be converted into words
  * Return: array of words ended by '\0' or NULL if alloc fail
  */
- char **strtow(char *str)
+char **strtow(char *str)
 {
     int i, j;
     char *token, **array, *copy;
