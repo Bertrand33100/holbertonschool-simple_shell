@@ -46,8 +46,7 @@ and other functions permitted by the project requirements.
 ```text
 builtin.c        # Built-in commands such as exit and env
 execute.c        # Process creation and command execution
-env.c            # Environment management and printing
-getline.c        # Reading user input
+environment.c    # Environment management and printing
 token.c          # Tokenizing commands
 simpleshell.c    # Main shell loop
 simpleshell.h    # Header file and function prototypes
