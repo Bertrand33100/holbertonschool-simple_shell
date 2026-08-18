@@ -6,7 +6,7 @@
  * @line: raw line read by getline
  * Return: 1 if a builtin was executed, 0 otherwise
  */
-int handle_builtin(char **argv, char *line)
+int handle_builtin(char **argv, char *line, int last_status)
 {
     /* builtin: exit */
     if (strcmp(argv[0], "exit") == 0)

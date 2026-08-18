@@ -26,7 +26,7 @@ char *read_line(void)
  * @line_count: current line number for error messages
  * Return: 0 if success or 127 if the command is not found
  */
-int handle_line(char *line, char *program, int line_count)
+int handle_line(char *line, char *program, int line_count, int last_status)
 {
     char **argv, *path;
     int status;
@@ -39,7 +39,7 @@ int handle_line(char *line, char *program, int line_count)
         return (0);
     }
 
-    if (handle_builtin(argv, line))
+    if (handle_builtin(argv, line, last_status))
     {
         free_array(argv);
         free(line);
@@ -95,7 +95,7 @@ int main(int argc, char **argv)
         }
 
         line_count++;
-        status = handle_line(line, argv[0], line_count);
+        status = handle_line(line, argv[0], line_count, status);
     }
     return (status);
 }
