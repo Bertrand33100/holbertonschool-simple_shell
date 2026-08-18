@@ -23,6 +23,28 @@ Our goal was to understand how a shell works internally: reading user input, par
   * `exit` – closes the shell
   * `env` – prints environment variables
 
+## Flowchart
+
+The following flowchart represents the main execution process of our Simple Shell:
+
+![Simple Shell Flowchart](flowchart.png)
+
+The flowchart shows the different stages of the shell:
+
+1. Check whether the shell is running in a terminal.
+2. Display the prompt in interactive mode.
+3. Read the command using `getline`.
+4. Check for `EOF`.
+5. Tokenize the command.
+6. Check whether the command is a built-in.
+7. Handle `exit` or `env` when applicable.
+8. Search for the command using `PATH`.
+9. Create a child process with `fork()`.
+10. Execute the command with `execve()`.
+11. The parent waits for the child process.
+12. Free allocated memory.
+13. Return to the shell prompt.
+
 ## Allowed Functions
 
 We followed Holberton School's restrictions and used authorized functions such as:
@@ -48,36 +70,6 @@ builtin.c        # Built-in commands such as exit and env
 execute.c        # Process creation and command execution
 environment.c    # Environment management and printing
 token.c          # Tokenizing commands
+getline.c        # Reading user input
 simpleshell.c    # Main shell loop
 simpleshell.h    # Header file and function prototypes
-```
-
-## Compilation
-
-Compile the project with:
-
-```bash
-gcc -Wall -Wextra -Werror -pedantic *.c -o hsh
-```
-
-## Usage
-
-Start the shell:
-
-```bash
-./hsh
-```
-
-Example:
-
-```text
-$ ls
-$ env
-$ exit
-```
-
-The shell reads the command entered by the user, processes it, and executes the requested program when appropriate.
-
-## Authors
-
-This project was created by **Eva Galiano** and **Bertrand Oeung** as part of the **Holberton School** curriculum in 2026.
