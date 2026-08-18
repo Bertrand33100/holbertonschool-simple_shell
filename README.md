@@ -10,19 +10,6 @@ This project is a basic implementation of a Unix command interpreter.
 
 Our goal was to understand how a shell works internally: reading user input, parsing commands, creating processes, and executing programs using system calls.
 
-## Features
-
-* Displays a prompt
-* Reads user input
-* Tokenizes commands
-* Executes programs using `fork()` and `execve()`
-* Waits for child processes
-* Handles simple errors
-* Supports built-in commands:
-
-  * `exit` – closes the shell
-  * `env` – prints environment variables
-
 ## Flowchart
 
 The following flowchart represents the main execution process of our Simple Shell:
@@ -73,3 +60,23 @@ environment.c    # Environment management and printing
 token.c          # Tokenizing commands
 simpleshell.c    # Main shell loop
 simpleshell.h    # Header file and function prototypes
+
+## Requirements
+
+This project follows the requirements and coding standards of Holberton School.
+
+The code is written in:
+
+C
+GNU89 standard
+Betty coding style
+
+## Authors
+
+Bertrand Oeung
+GitHub: Bertrand33100
+
+Eva Galiano
+Compilation uses:
+
+-Wall -Werror -Wextra -pedantic -std=gnu89
