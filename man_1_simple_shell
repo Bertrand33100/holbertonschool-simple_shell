@@ -115,8 +115,11 @@ The shell should continue running after an invalid command when operating in int
 Contains the main loop of the shell.
 
 .TP
-.B getline.c
-Reads commands from standard input.
+.B execute.c
+Creates a child process and executes the command using
+.BR fork (2)
+and
+.BR execve (2).
 
 .TP
 .B token.c
